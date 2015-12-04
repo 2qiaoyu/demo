@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 package com.joham.goods.dao.impl;
 
@@ -15,11 +15,11 @@ import java.util.List;
 public class GoodsBrandDaoImpl extends BasicSqlSupport implements GoodsBrandDao{
 
 	public GoodsBrand selectByPrimaryKey(Long brandId) {
-		return getSession().selectOne("com.ningpai.goods.dao.GoodsBrandMapper.selectByPrimaryKey", brandId);
+		return getSession().selectOne("com.joham.goods.dao.GoodsBrandMapper.selectByPrimaryKey", brandId);
 	}
 
 	public List<GoodsBrand> findGoodsBrandList() {
-		return getSession().selectList("com.ningpai.goods.dao.GoodsBrandMapper.findGoodsBrandList");
+		return getSession().selectList("com.joham.goods.dao.GoodsBrandMapper.findGoodsBrandList");
 	}
 
 }

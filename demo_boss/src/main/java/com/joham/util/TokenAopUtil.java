@@ -27,7 +27,7 @@ public class TokenAopUtil {
     };
 
     //配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
-    @Pointcut("execution(* com.ningpai.*.controller.*.*(..))")
+    @Pointcut("execution(* com.joham.*.controller.*.*(..))")
     private void pointCut(){
 
     }

@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 
 package com.joham.util;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 分页辅助类
  * 
- * @author NINGPAI-YuanKangKang
+ * @author joham-YuanKangKang
  * @since 2013年12月16日 下午4:34:12
  * @version 1.0
  */
@@ -22,7 +22,7 @@ public class PageBean {
     /**
      * 重写无参构造函数：获取设置的默认分页行数
      * 
-     * @author NINGPAI-WangHaiYang
+     * @author joham-WangHaiYang
      */
     public PageBean() {
         this.pageSize = PageRowsUtil.getPageRows();

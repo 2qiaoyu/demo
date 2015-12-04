@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 package com.joham.adminUser.dao.impl;
 
@@ -15,22 +15,22 @@ import java.util.Map;
 public class UserDaoImpl extends BasicSqlSupport implements UserDao{
 
 	public User checkLogin(Map<String, Object> paramMap) {
-		return getSession().selectOne("com.ningpai.web.dao.UserMapper.checkLogin", paramMap);
+		return getSession().selectOne("com.joham.web.dao.UserMapper.checkLogin", paramMap);
 	}
 
 	public int save(User user) {
-		return getSession().insert("com.ningpai.web.dao.UserMapper.save", user);
+		return getSession().insert("com.joham.web.dao.UserMapper.save", user);
 	}
 
 	public User checkUserName(Map<String,Object> paramMap) {
-		return getSession().selectOne("com.ningpai.web.dao.UserMapper.checkUserName", paramMap);
+		return getSession().selectOne("com.joham.web.dao.UserMapper.checkUserName", paramMap);
 	}
 
 	public User findUser(Map<String, Object> paramMap) {
-		return getSession().selectOne("com.ningpai.web.dao.UserMapper.findUser", paramMap);
+		return getSession().selectOne("com.joham.web.dao.UserMapper.findUser", paramMap);
 	}
 
 	public int update(User user) {
-		return getSession().update("com.ningpai.web.dao.UserMapper.update", user);
+		return getSession().update("com.joham.web.dao.UserMapper.update", user);
 	}
 }

@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 package com.joham.goods.dao.impl;
 
@@ -17,35 +17,35 @@ import java.util.Map;
 public class GoodsDaoImpl extends BasicSqlSupport implements GoodsDao{
 
 	public List<Object> findGoodsList(Map<String,Object> map) {
-		return getSession().selectList("com.ningpai.goods.dao.GoodsMapper.findGoodsList",map);
+		return getSession().selectList("com.joham.goods.dao.GoodsMapper.findGoodsList",map);
 	}
 
 	public int getGoodsCount(SelectBean selectBean) {
-		return getSession().selectOne("com.ningpai.goods.dao.GoodsMapper.getGoodsCount",selectBean);
+		return getSession().selectOne("com.joham.goods.dao.GoodsMapper.getGoodsCount",selectBean);
 	}
 
 	public int deleteGoodsById(Map<String, String> map) {
-		return getSession().delete("com.ningpai.goods.dao.GoodsMapper.deleteGoodsById",map);
+		return getSession().delete("com.joham.goods.dao.GoodsMapper.deleteGoodsById",map);
 	}
 
 	public int updateGoodsById(Goods goods) {
-		return getSession().update("com.ningpai.goods.dao.GoodsMapper.updateGoodsById",goods);
+		return getSession().update("com.joham.goods.dao.GoodsMapper.updateGoodsById",goods);
 	}
 
 	public Goods selectById(Long goodsId) {
-		return getSession().selectOne("com.ningpai.goods.dao.GoodsMapper.selectById",goodsId);
+		return getSession().selectOne("com.joham.goods.dao.GoodsMapper.selectById",goodsId);
 	}
 
 	public int addGoods(Goods goods) {
-		return getSession().insert("com.ningpai.goods.dao.GoodsMapper.addGoods", goods);
+		return getSession().insert("com.joham.goods.dao.GoodsMapper.addGoods", goods);
 	}
 
 	public List<Object> queryAllGoodsToExport() {
-		return getSession().selectList("com.ningpai.goods.dao.GoodsMapper.queryAllGoodsToExport");
+		return getSession().selectList("com.joham.goods.dao.GoodsMapper.queryAllGoodsToExport");
 	}
 
 	public List<Object> queryGoodsListVoListForExportByGoodsIds(
 			Map<String, Object> map) {
-		return getSession().selectList("com.ningpai.goods.dao.GoodsMapper.queryGoodsListVoListForExportByGoodsIds",map);
+		return getSession().selectList("com.joham.goods.dao.GoodsMapper.queryGoodsListVoListForExportByGoodsIds",map);
 	}
 }

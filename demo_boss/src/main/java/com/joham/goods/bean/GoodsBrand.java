@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 商品品牌类
  * 
- * @author NINGPAI-YuanKangKang
+ * @author joham-YuanKangKang
  * @since 2013年12月16日 下午7:28:54
  * @version 1.0
  */

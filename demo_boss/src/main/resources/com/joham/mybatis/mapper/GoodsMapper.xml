@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.joham.goods.dao.GoodsMapper">
-	<resultMap id="BaseResultMap" type="com.Goods">
+	<resultMap id="BaseResultMap" type="com.joham.goods.bean.Goods">
 		<id column="goods_id" property="goodsId" jdbcType="BIGINT" />
 		<result column="cat_id" property="catId" jdbcType="BIGINT" />
 		<result column="type_id" property="typeId" jdbcType="BIGINT" />
@@ -79,7 +79,7 @@
 		 limit #{startRowNum},#{endRowNum}
 	</select>
 	
-	<select id="getGoodsCount" resultType="java.lang.Integer" parameterType="com.SelectBean">
+	<select id="getGoodsCount" resultType="java.lang.Integer" parameterType="com.joham.util.SelectBean">
 		select count(1) from np_goods where goods_delflag='0'
 		<!-- 为1按照商品名称查询 -->
 		<if test="condition == 1">
@@ -95,7 +95,7 @@
 		update np_goods set goods_delflag='1',goods_del_time=NOW() where goods_id=#{goodsId,jdbcType=BIGINT}
 	</delete>
 	
-	<update id="updateGoodsById" parameterType="com.Goods">
+	<update id="updateGoodsById" parameterType="com.joham.goods.bean.Goods">
 		update np_goods
 		<set>
 			<if test="goodsName!=null">
@@ -122,7 +122,7 @@
 		from np_goods where goods_id=#{goodsId}
 	</select>
 	
-	<insert id="addGoods" parameterType="com.Goods">
+	<insert id="addGoods" parameterType="com.joham.goods.bean.Goods">
 		insert into np_goods
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 		<if test="goodsName!=null">

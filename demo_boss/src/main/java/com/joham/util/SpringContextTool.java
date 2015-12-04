@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * 获取Spring上下文工具类
  * 
- * @author NINGPAI_xiaomm
+ * @author joham_xiaomm
  * @since 2014-03-25 13:17:21
  * @version V1.0
  */

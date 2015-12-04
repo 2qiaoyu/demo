@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.joham.web.dao.UserMapper">
-	<resultMap type="com.User" id="BaseResultMap">
+	<resultMap type="com.joham.adminUser.bean.User" id="BaseResultMap">
 		<id column="user_id" property="userId" jdbcType="BIGINT"/>
 		<id column="user_name" property="userName" jdbcType="VARCHAR"/>
 		<id column="password" property="password" jdbcType="VARCHAR"/>
@@ -19,7 +19,7 @@
 		where user_name=#{username} and password=#{password}
 	</select>
 	
-	<insert id="save" parameterType="com.User">
+	<insert id="save" parameterType="com.joham.adminUser.bean.User">
 		insert into np_user(user_id,user_name,password,delflag) values(#{userId,jdbcType=BIGINT},
 		#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{delflag,jdbcType=CHAR})
 		<selectKey keyProperty="user_id" resultType="java.lang.Long">
@@ -41,7 +41,7 @@
 		where user_id=#{userId} 
 	</select>
 	
-	<select id="update" parameterType="com.User">
+	<select id="update" parameterType="com.joham.adminUser.bean.User">
 		update np_user set password=#{password} where user_id=#{userId}
 	</select>
 </mapper>

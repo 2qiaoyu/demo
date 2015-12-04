@@ -394,6 +394,12 @@
             <version>1.6.2</version>
             <scope>runtime</scope>
         </dependency>
+        <!--阿里巴巴druid-->
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.9</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -4,11 +4,11 @@
 
 	<typeAliases>
 		<!-- Entities 参数实体 -->
-		<!-- com.ningpai.web.bean 包中的 所有Bean, 取个别名 -->
+		<!-- com.joham.web.bean 包中的 所有Bean, 取个别名 -->
 		<!-- 比如Product类就用Product来表示 -->
-		<typeAlias type="com.Goods" alias="Goods" />
-		<typeAlias type="com.GoodsBrand" alias="GoodsBrand"/>
-		<typeAlias type="com.User" alias="User"/>
+		<typeAlias type="com.joham.goods.bean.GoodsBrand" alias="Goods" />
+		<typeAlias type="com.joham.goods.bean.GoodsBrand" alias="GoodsBrand"/>
+		<typeAlias type="com.joham.adminUser.bean.User" alias="User"/>
 	</typeAliases>
 	
 	<mappers>
@@ -16,8 +16,8 @@
 		
 		
 		<!-- 商品mapper文件 -->
-		<mapper resource="com/ningpai/mybatis/mapper/GoodsMapper.xml"/>
-		<mapper resource="com/ningpai/mybatis/mapper/GoodsBrandMapper.xml"/>
-		<mapper resource="com/ningpai/mybatis/mapper/UserMapper.xml"/>
+		<mapper resource="com/joham/mybatis/mapper/GoodsMapper.xml"/>
+		<mapper resource="com/joham/mybatis/mapper/GoodsBrandMapper.xml"/>
+		<mapper resource="com/joham/mybatis/mapper/UserMapper.xml"/>
 	</mappers>
 </configuration>

@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 package com.joham.adminUser.service;
 

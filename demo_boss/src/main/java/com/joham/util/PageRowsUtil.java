@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 /**
  * 
@@ -9,7 +9,7 @@ package com.joham.util;
 
 /**
  * 分页行数工具类
- * @author NINGPAI-WangHaiYang
+ * @author joham-WangHaiYang
  * @since 2014年5月26日下午4:30:17
  */
 public final class PageRowsUtil {

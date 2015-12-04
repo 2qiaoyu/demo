@@ -1,11 +1,11 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 package com.joham.util;
 /**
  * 分页参数Bean
- * @author NINGPAI-LiHaoZe 
+ * @author joham-LiHaoZe
  * @since 2013年12月18日 下午2:56:14 
  * @version 1.0
  */

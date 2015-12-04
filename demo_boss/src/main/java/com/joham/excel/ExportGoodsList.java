@@ -1,6 +1,6 @@
 /*
- * Copyright 2013 NINGPAI, Inc.All rights reserved.
- * NINGPAI PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
+ * Copyright 2013 joham, Inc.All rights reserved.
+ * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
  */
 
 package com.joham.excel;
@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * 导出商品列表数据
  * 
- * @author NINGPAI-YuanKangKang
+ * @author joham-YuanKangKang
  * @since 2014年4月24日 上午9:33:30
  * @version
  */
