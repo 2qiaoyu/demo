@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.joham.goods.dao.GoodsMapper">
+	<resultMap id="BaseResultMap" type="com.Goods">
+		<id column="goods_id" property="goodsId" jdbcType="BIGINT" />
+		<result column="cat_id" property="catId" jdbcType="BIGINT" />
+		<result column="type_id" property="typeId" jdbcType="BIGINT" />
+		<result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+		<result column="goods_subtitle" property="goodsSubtitle"
+			jdbcType="VARCHAR" />
+	    <result column="goods_info_item_no" property="goodsInfoItemNo" jdbcType="VARCHAR" />
+		<result column="goods_no" property="goodsNo" jdbcType="VARCHAR" />
+		<result column="goods_keywords" property="goodsKeywords"
+			jdbcType="VARCHAR" />
+		<result column="brand_id" property="brandId" jdbcType="BIGINT" />
+		<result column="goods_brief" property="goodsBrief" jdbcType="VARCHAR" />
+		<result column="goods_added" property="goodsAdded" jdbcType="CHAR" />
+		<result column="goods_uptime" property="goodsUptime" jdbcType="TIMESTAMP" />
+		<result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
+		<result column="goods_recom" property="goodsRecom" jdbcType="CHAR" />
+		<result column="goods_img" property="goodsImg" jdbcType="VARCHAR" />
+		<result column="goods_score" property="goodsScore" jdbcType="DECIMAL" />
+		<result column="goods_deno" property="goodsDeno" jdbcType="VARCHAR" />
+		<result column="goods_seo_title" property="goodsSeoTitle"
+			jdbcType="VARCHAR" />
+		<result column="goods_seo_keyword" property="goodsSeoKeyword"
+			jdbcType="VARCHAR" />
+		<result column="goods_seo_desc" property="goodsSeoDesc"
+			jdbcType="VARCHAR" />
+		<result column="goods_prom" property="goodsProm" jdbcType="CHAR" />
+		<result column="goods_info_instocksell" property="goodsInfoInstocksell"
+			jdbcType="CHAR" />
+		<result column="goods_usecoupon" property="goodsUsecoupon"
+			jdbcType="CHAR" />
+		<result column="goods_create_name" property="goodsCreateName"
+			jdbcType="VARCHAR" />
+		<result column="goods_create_time" property="goodsCreateTime"
+			jdbcType="TIMESTAMP" />
+		<result column="goods_modified_name" property="goodsModifiedName"
+			jdbcType="VARCHAR" />
+		<result column="goods_modified_time" property="goodsModifiedTime"
+			jdbcType="TIMESTAMP" />
+		<result column="goods_del_name" property="goodsDelName"
+			jdbcType="VARCHAR" />
+		<result column="goods_del_time" property="goodsDelTime"
+			jdbcType="TIMESTAMP" />
+		<result column="goods_delflag" property="goodsDelflag"
+			jdbcType="CHAR" />
+		<result column="goods_belo" property="goodsBelo" jdbcType="BIGINT"/>
+		<result column="goods_belo_name" property="goodsBeloName" jdbcType="VARCHAR"/>
+		<result column="is_third" property="isThird" jdbcType="VARCHAR"/>
+		<result column="third_cate_id" property="thirdCateId" jdbcType="BIGINT"/>
+		<association property="goodsBrand" column="brand_id" select="com.joham.goods.dao.GoodsBrandMapper.selectByPrimaryKey"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		goods_id, cat_id, type_id, goods_name, goods_subtitle, goods_no,
+		goods_keywords,
+		brand_id, goods_brief, goods_added, goods_uptime, goods_price, goods_recom,
+		goods_img,
+		goods_score, goods_deno, goods_seo_title, goods_seo_keyword, goods_seo_desc,
+		goods_prom,
+		goods_info_instocksell, goods_usecoupon, goods_create_name, goods_create_time,
+		goods_modified_name,
+		goods_modified_time, goods_del_name, goods_del_time, goods_delflag,goods_belo,goods_belo_name,is_third,third_cate_id
+	</sql>
+	
+	<select id="findGoodsList" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select <include refid="Base_Column_List"/>
+		from np_goods where goods_delflag='0'
+		<!-- 为1按照商品名称查询 -->
+		<if test="condition == 1">
+  			and goods_name like  CONCAT(CONCAT('%', #{searchText},'%')) 
+  		</if>
+  		<!-- 若为2 按照商品编号查询 -->
+  		<if test="condition == 2">
+  			and goods_no like  CONCAT(CONCAT('%', #{searchText},'%')) 
+  		</if>
+		 limit #{startRowNum},#{endRowNum}
+	</select>
+	
+	<select id="getGoodsCount" resultType="java.lang.Integer" parameterType="com.SelectBean">
+		select count(1) from np_goods where goods_delflag='0'
+		<!-- 为1按照商品名称查询 -->
+		<if test="condition == 1">
+  			and goods_name like  CONCAT(CONCAT('%', #{searchText},'%')) 
+  		</if>
+  		<!-- 若为2 按照商品编号查询 -->
+  		<if test="condition == 2">
+  			and goods_no like  CONCAT(CONCAT('%', #{searchText},'%')) 
+  		</if>
+	</select>
+	
+	<delete id="deleteGoodsById" parameterType="java.util.Map">
+		update np_goods set goods_delflag='1',goods_del_time=NOW() where goods_id=#{goodsId,jdbcType=BIGINT}
+	</delete>
+	
+	<update id="updateGoodsById" parameterType="com.Goods">
+		update np_goods
+		<set>
+			<if test="goodsName!=null">
+				goods_name=#{goodsName,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsSubtitle!=null">
+				goods_subtitle=#{goodsSubtitle,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsNo!=null">
+				goods_no=#{goodsNo,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsPrice!=null">
+				goods_price=#{goodsPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="brandId!=null">
+				brand_id=#{brandId}
+			</if>
+		</set> 
+		where goods_id=#{goodsId,jdbcType=BIGINT}
+	</update>
+	
+	<select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/>
+		from np_goods where goods_id=#{goodsId}
+	</select>
+	
+	<insert id="addGoods" parameterType="com.Goods">
+		insert into np_goods
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+		<if test="goodsName!=null">
+			goods_name,
+		</if>
+		<if test="brandId!=null">
+			brand_id,
+		</if>
+		<if test="goodsPrice!=null">
+			goods_price,
+		</if>
+		<if test="goodsNo!=null">
+			goods_no,
+		</if>
+		<if test="goodsDelflag!=null">
+			goods_delflag,
+		</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="goodsName!=null">
+				#{goodsName},
+			</if>
+			<if test="brandId!=null">
+				#{brandId},
+			</if>
+			<if test="goodsPrice!=null">
+				#{goodsPrice},
+			</if>
+			<if test="goodsNo!=null">
+				#{goodsNo},
+			</if>
+			<if test="goodsDelflag!=null">
+				#{goodsDelflag},
+			</if>
+		</trim>
+	</insert>
+	
+	<!-- 查询所有的商品信息集合用于导出 -->
+	<select id="queryAllGoodsToExport" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from np_goods where goods_delflag='0'
+		order by goods_create_time desc
+	</select>
+	
+	<!-- 根据商品ID的数组查询列表 -->
+	<select id="queryGoodsListVoListForExportByGoodsIds" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from np_goods where goods_id in 
+		<foreach collection="goodsIds" item="goodsId" open="(" close=")" separator=",">
+			#{goodsId}
+		</foreach>
+	</select>
+</mapper>
