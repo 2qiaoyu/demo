@@ -299,7 +299,7 @@
 					<td>${goods.goodsBrand.brandName}</td>
 					<td>${goods.goodsNo}</td>
 					<td>${goods.goodsPrice}</td>
-					<td><a href="javascript:void(0)" onclick="location.href='update-${goods.goodsId}.html'">修改</a>|
+					<td><a href="javascript:void(0)" onclick="location.href='toModifyGoods.htm?goodsId=${goods.goodsId}'">修改</a>|
 					<%-- <a href="javascript:void(0)" onclick="location.href='toModifyGoods.htm?goodsId=${goods.goodsId}'">修改</a>| --%>
 					<a href="javascript:void(0)" onclick="location.href='delGoods.htm?goodsId=${goods.goodsId}'">删除</a>
 					<%--<a href="javascript:void(0)" onclick="location.href='findGoodsByGoodsId.htm?goodsId=${goods.goodsId}'">查看</a> --%>

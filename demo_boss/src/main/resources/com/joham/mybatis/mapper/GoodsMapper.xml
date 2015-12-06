@@ -119,7 +119,7 @@
 	
 	<select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List"/>
-		from np_goods where goods_id=#{goodsId}
+		from np_goods where goods_id=#{goodsId,jdbcType=BIGINT}
 	</select>
 	
 	<insert id="addGoods" parameterType="com.joham.goods.bean.Goods">

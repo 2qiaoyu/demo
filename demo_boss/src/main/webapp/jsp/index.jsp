@@ -199,9 +199,9 @@
             </a>
         </li>
         <li>
-            <a href="chart-showcase.html">
+            <a href="list.htm">
                 <i class="icon-signal"></i>
-                <span>Charts</span>
+                <span>goods</span>
             </a>
         </li>
         <li>

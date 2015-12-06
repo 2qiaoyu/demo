@@ -8,7 +8,7 @@
 <html class="login-bg">
 <head>
     <base href="<%=basePath%>">
-    <title>登陆</title>
+    <title>登录</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 

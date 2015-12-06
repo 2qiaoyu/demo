@@ -1,4 +1,4 @@
-package com.joham.common;
+package com.joham.patchca.controller;
 
 import org.patchca.background.SingleColorBackgroundFactory;
 import org.patchca.color.SingleColorFactory;
@@ -19,7 +19,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.io.OutputStream;
 
-@Controller("capthcaControllerSite")
+@Controller
 public class CapthcaController {
 
     @RequestMapping("/patchca")
