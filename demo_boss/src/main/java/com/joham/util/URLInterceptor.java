@@ -1,7 +1,7 @@
 package com.joham.util;
 
 
-import com.joham.adminUser.bean.User;
+import com.joham.admin.bean.Admin;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  */
 public class URLInterceptor extends HandlerInterceptorAdapter {
     String[] nofilters = new String[]{
-        "/login.htm", "/toRegister.htm","/toLogin.htm","/checkUserName.htm","/toSuccess.htm","/patchca.htm","/patchcaSession.htm","customer/toLogin.htm"
+        "/login.htm", "/toRegister.htm","/checkUserName.htm","/toSuccess.htm","/patchca.htm","/patchcaSession.htm","/tologin.htm"
     };
     /**
      * This implementation always returns <code>true</code>.
@@ -55,17 +55,16 @@ public class URLInterceptor extends HandlerInterceptorAdapter {
         builderHead.append("<head>" +"<link href='css/bootstrap.min.css' rel='stylesheet'>"  + "<script src='js/jquery.min.js'></script>"+"<script src='js/bootstrap.min.js'></script>"+ "</head>" + "<html> <body>");
         builderFoot.append("</body></html><script type=\"text/javascript\">   ");
         builderFoot.append("window.onload=function(){   $('#loginFail').modal('show');"
-                + "$('#tologin').click(function(){top.location.href='Login.html'});"
+                + "$('#tologin').click(function(){top.location.href='tologin.htm'});"
                 + "}");
         builderFoot.append("</script>");
-        User user  = (User)request.getSession().getAttribute("adminUser");
+        Admin admin = (Admin)request.getSession().getAttribute("user");
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out;
         if(isFilter){
-            if(user==null){
+            if(admin ==null){
                 try {
                     out = response.getWriter();
-
                     builderTip.append(noLogin);
                     out.print(builderHead.append(builderTip).append(builderFoot).toString());
                     out.close();

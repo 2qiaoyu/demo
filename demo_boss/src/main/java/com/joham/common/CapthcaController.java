@@ -10,7 +10,6 @@ import org.patchca.utils.encoder.EncoderHelper;
 import org.patchca.word.RandomWordFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +21,7 @@ import java.io.OutputStream;
 
 @Controller("capthcaControllerSite")
 public class CapthcaController {
-  
+
     @RequestMapping("/patchca")
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -32,50 +31,37 @@ public class CapthcaController {
         HttpSession session = req.getSession(true);
         OutputStream os = resp.getOutputStream();
         String patcha = EncoderHelper.getChallangeAndWriteImage(cs, "png", os);
-        
-        session.setAttribute("PATCHCA", patcha);
+        session.setAttribute("patcha", patcha);
         os.flush();
         os.close();
         cs = null;
-       
+
     }
 
-    @RequestMapping("/patchcaSession")
-    @ResponseBody
-    protected String dopost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        return (String)req.getSession().getAttribute("PATCHCA");
-        
-       
-    }
-    private class MyCaptchaService extends AbstractCaptchaService{
-        
-        public MyCaptchaService(){
-            String[] fontOption = {"Verdana","Tahoma"};
+    private class MyCaptchaService extends AbstractCaptchaService {
+        public MyCaptchaService() {
+            String[] fontOption = {"Verdana", "Tahoma"};
             wordFactory = new MyWordFactory();
-            fontFactory = new RandomFontFactory(THIRTYONE,fontOption);
+            fontFactory = new RandomFontFactory(THIRTYONE, fontOption);
             textRenderer = new BestFitTextRenderer();
             backgroundFactory = new SingleColorBackgroundFactory();
-            colorFactory = new SingleColorFactory(new Color(TWENTYFIVE,SIXTY,OSZ));
+            colorFactory = new SingleColorFactory(new Color(TWENTYFIVE, SIXTY, OSZ));
             filterFactory = new CurvesRippleFilterFactory(colorFactory);
             width = NINETY;
             height = THIRTY;
-            
+
         }
     }
-    private class MyWordFactory extends RandomWordFactory{
-        
-        public MyWordFactory(){
-//            characters = "absdekmnowx23456789";
+
+    private class MyWordFactory extends RandomWordFactory {
+        public MyWordFactory() {
             characters = "123456789";
             minLength = FIVE;
             maxLength = SIX;
         }
-    }    
-//    private static final int FIVE = 5;
+    }
+
     private static final int FIVE = 4;
-//    private static final int SIX = 6;
     private static final int SIX = 4;
     private static final int THIRTYONE = 31;
     private static final int TWENTYFIVE = 25;

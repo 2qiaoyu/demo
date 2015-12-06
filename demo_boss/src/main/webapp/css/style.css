@@ -1,0 +1,10 @@
+.login_box {
+    margin: auto;
+    top:150px;
+    width: 100%;
+    max-width: 1366px;
+    height: 650px;
+    min-width: 1080px;
+    position: relative;
+    background-image: url("../images/login.jpg");
+}

@@ -22,7 +22,7 @@
 		if($("#oldPassword").val()==""){
 			alert("旧密码不能为空！");
 			return false;
-		}else if($("#oldPassword").val()!="${sessionScope.adminUser.password}"){
+		}else if($("#oldPassword").val()!="${sessionScope.admin.password}"){
 			alert("旧密码不正确！");
 			return false;
 		}
@@ -58,10 +58,10 @@
 	<div>
 		<h1>修改密码</h1>
 		<form action="updatePwd.htm" id="registerForm" method="post">
-			<input type="hidden" name="userId" value="${sessionScope.adminUser.userId}"/>
+			<input type="hidden" name="userId" value="${sessionScope.admin.userId}"/>
 			<table>
 				<tr><td>用户名：</td><td><input type="text" name="username" id="username" 
-					value="${sessionScope.adminUser.userName}" readonly="readonly"/>
+					value="${sessionScope.admin.userName}" readonly="readonly"/>
 				<tr><td>旧密码：</td><td><input type="password" name="oldPassword" id="oldPassword"/></td></tr>
 				<tr><td>新密码：</td><td><input type="password" name="newPassword" id="newPassword"/></td></tr>
 				<tr><td>确认新密码：</td><td><input type="password" name="rePassword" id="rePassword"/></td></tr>

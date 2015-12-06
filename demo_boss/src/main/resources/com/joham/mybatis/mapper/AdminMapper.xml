@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.joham.web.dao.AdminMapper">
+    <resultMap type="com.joham.admin.bean.Admin" id="BaseResultMap">
+        <id column="admin_id" property="id" jdbcType="BIGINT"/>
+        <id column="admin_username" property="username" jdbcType="VARCHAR"/>
+        <id column="admin_password" property="password" jdbcType="VARCHAR"/>
+        <id column="admin_delflag" property="delflag" jdbcType="CHAR"/>
+        <id column="admin_login_time" property="loginTime" jdbcType="TIMESTAMP"/>
+        <id column="admin_level_id" property="levelId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		admin_id,admin_username,admin_password,admin_delflag,admin_login_time,admin_level_id
+	</sql>
+
+    <select id="checkLogin" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from demo_admin
+        where admin_username=#{username} and admin_password=md5(#{password}) and admin_delflag='0'
+    </select>
+
+    <insert id="save" parameterType="com.joham.admin.bean.Admin">
+        insert into np_user(user_id,user_name,password,delflag) values(#{userId,jdbcType=BIGINT},
+        #{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{delflag,jdbcType=CHAR})
+        <selectKey keyProperty="user_id" resultType="java.lang.Long">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <select id="checkUserName" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from np_user
+        where user_name=#{username}
+    </select>
+
+    <select id="findUser" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from np_user
+        where user_id=#{userId}
+    </select>
+
+    <select id="update" parameterType="com.joham.admin.bean.Admin">
+		update np_user set password=#{password} where user_id=#{userId}
+	</select>
+</mapper>

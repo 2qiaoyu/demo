@@ -233,7 +233,7 @@
 <body>
 	<div>
 		<form action="#" method="post" id="updateForm">
-			<p><span>欢迎您：${sessionScope.adminUser.userName}</span></p>
+			<p><span>欢迎您：${sessionScope.admin.userName}</span></p>
 			<p><span><input type="button" value="修改密码" onclick="updatePwd()" /></span></p>
 			<p><span><a href="logout.htm">[登出]</a></span></p>
 		</form>

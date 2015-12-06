@@ -8,7 +8,7 @@
 		<!-- 比如Product类就用Product来表示 -->
 		<typeAlias type="com.joham.goods.bean.Goods" alias="Goods" />
 		<typeAlias type="com.joham.goods.bean.GoodsBrand" alias="GoodsBrand"/>
-		<typeAlias type="com.joham.adminUser.bean.User" alias="User"/>
+		<typeAlias type="com.joham.admin.bean.Admin" alias="User"/>
 	</typeAliases>
 	
 	<mappers>
@@ -18,6 +18,6 @@
 		<!-- 商品mapper文件 -->
 		<mapper resource="com/joham/mybatis/mapper/GoodsMapper.xml"/>
 		<mapper resource="com/joham/mybatis/mapper/GoodsBrandMapper.xml"/>
-		<mapper resource="com/joham/mybatis/mapper/UserMapper.xml"/>
+		<mapper resource="com/joham/mybatis/mapper/AdminMapper.xml"/>
 	</mappers>
 </configuration>
