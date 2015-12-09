@@ -10,6 +10,7 @@
     <modules>
         <module>demo_boss</module>
         <module>demo_core</module>
+        <module>demo_site</module>
     </modules>
 
     <build>

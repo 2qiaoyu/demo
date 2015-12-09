@@ -69,7 +69,7 @@
         <init-param>
             <!-- 密码 -->
             <param-name>loginPassword</param-name>
-            <param-value>qianmi520</param-value>
+            <param-value>admin</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
