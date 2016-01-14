@@ -6,6 +6,7 @@ import com.joham.goods.service.GoodsService;
 import com.joham.util.PageBean;
 import com.joham.util.SelectBean;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    @Transactional
     public int updateGoods(Goods goods) {
         return this.goodsDao.updateGoodsById(goods);
     }
