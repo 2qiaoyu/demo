@@ -4,6 +4,7 @@
  */
 package com.joham.goods.bean;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,6 +15,7 @@ public class Goods {
     //类型ID
     private Long typeId;
     //商品名称
+    @NotNull
     private String goodsName;
     //商品副标题
     private String goodsSubtitle;
