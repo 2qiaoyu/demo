@@ -1,7 +1,3 @@
-/*
- * Copyright 2013 joham, Inc.All rights reserved.
- * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
- */
 package com.joham.goods.controller;
 
 import com.joham.excel.ExportGoodsList;

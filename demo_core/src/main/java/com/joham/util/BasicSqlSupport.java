@@ -9,13 +9,14 @@ import org.apache.ibatis.session.SqlSession;
 import javax.annotation.Resource;
 
 public class BasicSqlSupport {
-	private SqlSession session;
+    private SqlSession session;
 
-	public SqlSession getSession() {
-		return session;
-	}
-	@Resource(name="sqlSession")
-	public void setSession(SqlSession session) {
-		this.session = session;
-	}
+    public SqlSession getSession() {
+        return session;
+    }
+
+    @Resource(name = "sqlSession")
+    public void setSession(SqlSession session) {
+        this.session = session;
+    }
 }

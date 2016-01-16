@@ -1,8 +1,3 @@
-/*
- * Copyright 2013 joham, Inc.All rights reserved.
- * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
- */
-
 package com.joham.excel;
 
 import com.joham.goods.bean.Goods;
@@ -20,20 +15,15 @@ import java.util.List;
 
 /**
  * 导出商品列表数据
- * 
- * @author joham-YuanKangKang
- * @since 2014年4月24日 上午9:33:30
- * @version
  */
 public final class ExportGoodsList {
     /**
      * 导出商品列表
-     * 
-     * @param goodsList
-     *            待导出的商品列表
+     *
+     * @param goodsList 待导出的商品列表
      */
     public static void exportGoodsList(List<Object> goodsList,
-            HttpServletResponse response) {
+                                       HttpServletResponse response) {
         // 创建文档
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet1 = wb.createSheet("商品列表");
@@ -93,5 +83,5 @@ public final class ExportGoodsList {
     private ExportGoodsList() {
         super();
     }
-    
+
 }

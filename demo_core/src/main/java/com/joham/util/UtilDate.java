@@ -9,8 +9,6 @@ import java.util.Locale;
 /**
  * 日期格式化
  * 
- * @author 郭广楠
- * 
  */
 public final class UtilDate {
     private UtilDate() {

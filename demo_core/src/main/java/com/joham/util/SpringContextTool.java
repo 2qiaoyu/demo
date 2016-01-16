@@ -5,17 +5,16 @@ import org.springframework.context.ApplicationContextAware;
 
 /**
  * 获取Spring上下文工具类
- * 
- * @author joham_xiaomm
- * @since 2014-03-25 13:17:21
- * @version V1.0
  */
 public class SpringContextTool implements ApplicationContextAware {
-    /** 内容 */
+    /**
+     * 内容
+     */
     private static ApplicationContext context;
 
     /**
      * acx
+     *
      * @param acx
      */
     public static void setContext(ApplicationContext acx) {
@@ -24,6 +23,7 @@ public class SpringContextTool implements ApplicationContextAware {
 
     /**
      * 静态getApplicationContext
+     *
      * @return ApplicationContext
      */
     public static ApplicationContext getApplicationContext() {
@@ -32,9 +32,8 @@ public class SpringContextTool implements ApplicationContextAware {
 
     /**
      * 通过配置的Bean名字获得Bean
-     * 
-     * @param beanName
-     *            Bean名字
+     *
+     * @param beanName Bean名字
      * @return Bean
      */
     public static Object getBean(String beanName) {
@@ -47,7 +46,7 @@ public class SpringContextTool implements ApplicationContextAware {
 
     /**
      * applicationContext
-     * 
+     *
      * @see org.springframework.context.ApplicationContextAware#setApplicationContext(org.springframework.context.ApplicationContext)
      */
     public void setApplicationContext(ApplicationContext applicationContext) {

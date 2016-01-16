@@ -1,7 +1,3 @@
-/*
- * Copyright 2013 joham, Inc.All rights reserved.
- * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
- */
 package com.joham.admin.controller;
 
 import com.joham.admin.bean.Admin;
@@ -15,6 +11,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -36,13 +33,12 @@ public class AdminController {
         } else {
             if (captcha.equals(request.getSession().getAttribute("patcha"))) {
                 //验证码正确
-                Admin admin = adminService.checkLogin(username, password);
-                if (admin != null) {
-                    request.getSession().setAttribute("user", admin);
+                int result = adminService.checkLogin(request, username, password);
+                if (result == 1) {
                     //登陆成功
                     return 1;
                 } else {
-                    //密码错误
+                    //密码错误或者用户名不存在
                     return 3;
                 }
             } else {
@@ -63,9 +59,7 @@ public class AdminController {
      * @return ModelAndView
      */
     @RequestMapping("/tologin")
-    public ModelAndView logOut(HttpServletRequest request) {
-        // 退出登陆
-        request.getSession().removeAttribute("user");
+    public ModelAndView tologin(HttpServletRequest request) {
         return new ModelAndView("jsp/signin");
     }
 
@@ -107,7 +101,7 @@ public class AdminController {
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request) {
         request.getSession().removeAttribute("admin");
-        return new ModelAndView(new RedirectView(request.getContextPath() + "/login.html"));
+        return new ModelAndView("jsp/signin");
     }
 
     @Resource(name = "AdminService")

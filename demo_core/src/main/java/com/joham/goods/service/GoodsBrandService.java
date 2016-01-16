@@ -1,7 +1,3 @@
-/*
- * Copyright 2013 joham, Inc.All rights reserved.
- * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
- */
 package com.joham.goods.service;
 
 import com.joham.goods.bean.GoodsBrand;

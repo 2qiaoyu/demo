@@ -1,8 +1,3 @@
-/*
- * Copyright 2013 joham, Inc.All rights reserved.
- * joham PROPRIETARY / CONFIDENTIAL.USE is subject to licence terms.
- */
-
 package com.joham.util;
 
 import org.springframework.stereotype.Component;
@@ -11,10 +6,6 @@ import java.util.List;
 
 /**
  * 分页辅助类
- * 
- * @author joham-YuanKangKang
- * @since 2013年12月16日 下午4:34:12
- * @version 1.0
  */
 @Component("pageBean")
 public class PageBean {
