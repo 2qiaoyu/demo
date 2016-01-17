@@ -54,7 +54,15 @@
 
     <!--拦截器-->
     <mvc:interceptors>
-        <bean class="com.joham.util.URLInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.joham.interceptor.URLInterceptor"/>
+        </mvc:interceptor>
+        <!-- 配置Token拦截器，防止用户重复提交数据 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.joham.interceptor.TokenInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->

@@ -34,6 +34,7 @@ function update(){
 	<h1>修改商品</h1>
 	<form id="updateForm" action="updateGoods.htm" method="post">
 		<input type="hidden" name=goodsId id="goodsId" value="${goodsId}"/>
+        <input type="hidden" name="token" value="${token}" />
 		<div>
 			<p>商品名称 <input name="goodsName" id="goodsName"/></p>
 			<p>商品图片<img name="goodsImg" id="goodsImg" src="goodsImg"/></p>

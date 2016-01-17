@@ -75,6 +75,4 @@
     <!-- 设置字段内容长度，这里不做限定   -->
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-
-    <import resource="ImplAndBusinessBeans.xml"/>
 </beans>

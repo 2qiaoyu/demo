@@ -1,5 +1,6 @@
 package com.joham.goods.controller;
 
+import com.joham.annotation.RepeatSubmitValidate;
 import com.joham.excel.ExportGoodsList;
 import com.joham.goods.bean.Goods;
 import com.joham.goods.bean.GoodsBrand;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,6 +74,7 @@ public class GoodsController {
      * @return
      */
     @RequestMapping("/toModifyGoods")
+    @RepeatSubmitValidate(create=true)
     public ModelAndView toModifyGoods(Long goodsId) {
         List<GoodsBrand> list = new ArrayList<GoodsBrand>();
         try {
@@ -103,8 +106,10 @@ public class GoodsController {
      * @return
      */
     @RequestMapping("/updateGoods")
+    @RepeatSubmitValidate(destroy=true)
     public ModelAndView updateGoods(Goods goods) {
         this.goodsService.updateGoods(goods);
+        System.out.println("执行了一次");
         return new ModelAndView(new RedirectView("list.htm"));
     }
 
@@ -138,7 +143,8 @@ public class GoodsController {
      * @return
      */
     @RequestMapping("/addGoods")
-    public ModelAndView addGoods(Goods goods) {
+    @RepeatSubmitValidate(create=true)
+    public ModelAndView addGoods(@Valid Goods goods) {
         goods.setGoodsDelflag("0");
         this.goodsService.addGoods(goods);
         return new ModelAndView(new RedirectView("list.htm"));
