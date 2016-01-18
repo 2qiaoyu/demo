@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService {
         if (admin != null) {
             //判断密码是否正确
             if (MD5.GetMD5Code(password).equals(admin.getPassword())) {
-                request.getSession().setAttribute("user", admin);
+                request.getSession().setAttribute("admin", admin);
                 //登陆成功
                 return 1;
             } else {

@@ -60,7 +60,7 @@ public class URLInterceptor extends HandlerInterceptorAdapter {
                 + "$('#tologin').click(function(){top.location.href='tologin.htm'});"
                 + "}");
         builderFoot.append("</script>");
-        Admin admin = (Admin) request.getSession().getAttribute("user");
+        Admin admin = (Admin) request.getSession().getAttribute("admin");
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out;
         if (isFilter) {
@@ -71,7 +71,6 @@ public class URLInterceptor extends HandlerInterceptorAdapter {
                     out.print(builderHead.append(builderTip).append(builderFoot).toString());
                     out.close();
                 } catch (IOException e) {
-                    out = null;
                 }
                 return false;
             } else {
