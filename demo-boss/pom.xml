@@ -1,17 +1,14 @@
-<?xml version="1.0"?>
-<project
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>com.joham</groupId>
         <artifactId>demo</artifactId>
+        <groupId>com.joham</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <artifactId>demo_site</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>demo-boss</artifactId>
     <packaging>war</packaging>
-    <name>demo_site</name>
+    <name>demo-boss</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -21,11 +18,10 @@
     <dependencies>
         <dependency>
             <groupId>com.joham</groupId>
-            <artifactId>demo_core</artifactId>
+            <artifactId>demo-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

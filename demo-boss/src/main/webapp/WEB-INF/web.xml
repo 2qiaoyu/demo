@@ -3,10 +3,10 @@
          xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
-    <display-name>demo_boss</display-name>
+    <display-name>demo-boss</display-name>
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>demo_boss.root</param-value>
+        <param-value>demo-boss.root</param-value>
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
