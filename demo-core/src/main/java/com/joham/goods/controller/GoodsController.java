@@ -8,12 +8,9 @@ import com.joham.goods.service.GoodsBrandService;
 import com.joham.goods.service.GoodsService;
 import com.joham.util.PageBean;
 import com.joham.util.SelectBean;
-import com.joham.util.UtilDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -21,10 +18,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -167,33 +161,6 @@ public class GoodsController {
     @RequestMapping("/exportGoodsCheck")
     public void exportGoodsCheck(HttpServletResponse response, Long[] goodsIds) {
         ExportGoodsList.exportGoodsList(this.goodsService.queryGoodsListVoListForExportByGoodsIds(goodsIds), response);
-    }
-
-    /**
-     * 上传
-     *
-     * @param request
-     * @throws java.io.IOException
-     * @throws IllegalStateException
-     */
-    @RequestMapping("/upload")
-    public void upload(MultipartHttpServletRequest request) throws IllegalStateException, IOException {
-        MultipartFile mf = request.getFile("uploadFile");
-        // 根据系统时间生成上传后保存的文件名
-        String filePath = "D:/upload/"
-                + UtilDate.todayFormatString(new Date()) + "/";
-        File picSaveFile = new File(filePath);
-        // 根据真实路径创建目录文件
-        if (!picSaveFile.exists()) {
-            try {
-                picSaveFile.mkdirs();
-            } catch (Exception e) {
-                e.getLocalizedMessage();
-            }
-        }
-        String path = filePath + mf.getOriginalFilename();
-        File file = new File(path);
-        mf.transferTo(file);
     }
 }
 
