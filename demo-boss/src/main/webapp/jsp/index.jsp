@@ -201,7 +201,13 @@
         <li>
             <a href="list.htm">
                 <i class="icon-signal"></i>
-                <span>goods</span>
+                <span>商品</span>
+            </a>
+        </li>
+        <li>
+            <a href="toUpload.htm">
+                <i class="icon-group"></i>
+                <span>上传</span>
             </a>
         </li>
         <li>
