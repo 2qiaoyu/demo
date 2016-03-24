@@ -23,6 +23,7 @@ import java.util.List;
 
 @Controller
 public class GoodsController {
+
     @Resource(name = "GoodsService")
     private GoodsService goodsService;
     @Resource(name = "GoodsBrandService")
