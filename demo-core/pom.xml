@@ -165,12 +165,6 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <!-- 又拍云 -->
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>upyun</artifactId>
-            <version>1.0.0</version>
-        </dependency>
         <!-- JSTL标签库 -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -304,16 +298,6 @@
             <version>1.8.1</version>
         </dependency>
         <dependency>
-            <groupId>weibo4j</groupId>
-            <artifactId>weibo4j</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.qq.connect</groupId>
-            <artifactId>Sdk4J</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.5.0</version>
@@ -367,18 +351,6 @@
             <groupId>jaxen</groupId>
             <artifactId>jaxen</artifactId>
             <version>1.1.4</version>
-        </dependency>
-
-        <!-- 银联 -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk16</artifactId>
-            <version>1.46</version>
-        </dependency>
-        <dependency>
-            <groupId>com.unionpay</groupId>
-            <artifactId>uponlinempiutil</artifactId>
-            <version>1.0.3</version>
         </dependency>
 
         <dependency>
