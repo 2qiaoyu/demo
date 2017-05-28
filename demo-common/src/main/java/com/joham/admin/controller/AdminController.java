@@ -26,7 +26,7 @@ public class AdminController {
     @ResponseBody
     public int checkLogin(HttpServletRequest request, String username, String password, String captcha) {
         //判断验证码是否正确
-        if (captcha == null && captcha == "") {
+        if (captcha == null || "".equals(captcha)) {
             //验证码为空
             return 2;
         } else {
@@ -49,7 +49,7 @@ public class AdminController {
 
     @RequestMapping("/index")
     public ModelAndView index() {
-        return new ModelAndView("jsp/index");
+        return new ModelAndView("index");
     }
 
     /**

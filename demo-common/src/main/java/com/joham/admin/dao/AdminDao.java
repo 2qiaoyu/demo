@@ -5,9 +5,7 @@ import com.joham.admin.bean.Admin;
 import java.util.Map;
 
 public interface AdminDao {
-    /*
-     *登陆用户名是否存在
-     */
+
     Admin selectAdminByUserName(Map<String, Object> paramMap);
 
     /*
@@ -21,7 +19,7 @@ public interface AdminDao {
     int save(Admin admin);
 
 	/*
-	 * 根据id查询用户
+     * 根据id查询用户
 	 */
 
     Admin findUser(Map<String, Object> paramMap);

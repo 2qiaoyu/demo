@@ -4,6 +4,7 @@ import com.joham.admin.bean.Admin;
 import com.joham.admin.dao.AdminDao;
 import com.joham.admin.service.AdminService;
 import com.joham.util.MD5;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,7 +14,8 @@ import java.util.Map;
 
 @Service("AdminService")
 public class AdminServiceImpl implements AdminService {
-    @Resource(name = "AdminDao")
+
+    @Autowired
     private AdminDao adminDao;
 
     /**
