@@ -11,9 +11,20 @@ public class IndexController {
 
     private Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+    /**
+     * 首页
+     */
     @RequestMapping("/indexSite")
-    public ModelAndView index() {
+    public String indexSite() {
         logger.info("进入前台首页");
-        return new ModelAndView("index/index");
+        return "index/index";
+    }
+
+    /**
+     * 错误页
+     */
+    @RequestMapping("/errorPage")
+    public String errorPage() {
+        return "index/error_page";
     }
 }
