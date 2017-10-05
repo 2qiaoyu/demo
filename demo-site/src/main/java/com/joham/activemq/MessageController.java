@@ -1,48 +1,43 @@
 package com.joham.activemq;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
-import javax.jms.Destination;
-import javax.jms.TextMessage;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Created by joham on 2017/4/9.
+ * 消息发送控制器
+ *
+ * @author qiaoyu
  */
 @Controller
+@Slf4j
 public class MessageController {
 
-    private Logger logger = LoggerFactory.getLogger(MessageController.class);
-
-    @Resource(name = "demoQueueDestination")
-    private Destination destination;
+    @Value("${amq.destination}")
+    private String destination;
 
     //队列消息生产者
-    @Resource(name = "producerService")
+    @Autowired
     private ProducerService producer;
 
-    //队列消息消费者
-    @Resource(name = "consumerService")
-    private ConsumerService consumer;
-
+    /**
+     * 发送消息
+     *
+     * @param msg 消息内容
+     */
     @RequestMapping(value = "/SendMessage", method = RequestMethod.POST)
     @ResponseBody
-    public void send(String msg) {
-//        producer.sendMessage();
-        producer.sendMessage(destination, "test");
-    }
-
-    @RequestMapping(value = "/ReceiveMessage", method = RequestMethod.GET)
-    @ResponseBody
-    public Object receive() {
-        logger.info("------------receive from jms Start");
-        TextMessage tm = consumer.receive(destination);
-        logger.info("------------receive from jms End");
-        return tm;
+    public String send(String msg, String title) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("title", title);
+        producer.sendMessage(destination, msg, map);
+        return "1";
     }
 }

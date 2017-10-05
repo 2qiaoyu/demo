@@ -1,29 +1,36 @@
 package com.joham.activemq;
 
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-import javax.jms.Destination;
 import javax.jms.JMSException;
-import javax.jms.TextMessage;
+import javax.jms.Message;
 
 /**
- * Created by joham on 2017/4/9.
+ * 消息接受服务
+ *
+ * @author qiaoyu
  */
-@Service("consumerService")
-public class ConsumerService {
-    @Resource(name = "jmsTemplate")
-    private JmsTemplate jmsTemplate;
 
-    public TextMessage receive(Destination destination) {
-        TextMessage textMessage = (TextMessage) jmsTemplate.receive(destination);
-        try {
-            System.out.println("从队列" + destination.toString() + "收到了消息：\t"
-                    + textMessage.getText());
-        } catch (JMSException e) {
-            e.printStackTrace();
+@Slf4j
+@Component
+public class ConsumerService {
+
+    @Value("${amq.destination}")
+    private String destination;
+
+    /**
+     * 监听消息
+     */
+    @JmsListener(containerFactory = "jmsListenerContainerFactory", destination = "${amq.destination}")
+    public void receiveQueue(Message message, String text) throws JMSException {
+        log.info("从{}接收到消息{}", destination, text);
+        if ("joham".equals(message.getStringProperty("title"))) {
+            log.info("title{}", message.getStringProperty("title"));
+        } else if ("joham1".equals(message.getStringProperty("title"))) {
+            log.info("title{}", message.getStringProperty("title"));
         }
-        return textMessage;
     }
 }
