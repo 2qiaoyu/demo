@@ -35,7 +35,7 @@ public class MessageController {
     @RequestMapping(value = "/SendMessage", method = RequestMethod.POST)
     @ResponseBody
     public String send(String msg, String title) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(16);
         map.put("title", title);
         producer.sendMessage(destination, msg, map);
         return "1";

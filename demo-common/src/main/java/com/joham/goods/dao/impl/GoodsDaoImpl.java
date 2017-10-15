@@ -12,35 +12,43 @@ import java.util.Map;
 @Repository("GoodsDao")
 public class GoodsDaoImpl extends BasicSqlSupport implements GoodsDao{
 
-	public List<Object> findGoodsList(Map<String,Object> map) {
+	@Override
+    public List<Object> findGoodsList(Map<String,Object> map) {
 		return getSession().selectList("com.joham.goods.dao.GoodsMapper.findGoodsList",map);
 	}
 
-	public int getGoodsCount(SelectBean selectBean) {
+	@Override
+    public int getGoodsCount(SelectBean selectBean) {
 		return getSession().selectOne("com.joham.goods.dao.GoodsMapper.getGoodsCount",selectBean);
 	}
 
-	public int deleteGoodsById(Map<String, String> map) {
+	@Override
+    public int deleteGoodsById(Map<String, String> map) {
 		return getSession().delete("com.joham.goods.dao.GoodsMapper.deleteGoodsById",map);
 	}
 
-	public int updateGoodsById(Goods goods) {
+	@Override
+    public int updateGoodsById(Goods goods) {
 		return getSession().update("com.joham.goods.dao.GoodsMapper.updateGoodsById",goods);
 	}
 
-	public Goods selectById(Long goodsId) {
+	@Override
+    public Goods selectById(Long goodsId) {
 		return getSession().selectOne("com.joham.goods.dao.GoodsMapper.selectById",goodsId);
 	}
 
-	public int addGoods(Goods goods) {
+	@Override
+    public int addGoods(Goods goods) {
 		return getSession().insert("com.joham.goods.dao.GoodsMapper.addGoods", goods);
 	}
 
-	public List<Object> queryAllGoodsToExport() {
+	@Override
+    public List<Object> queryAllGoodsToExport() {
 		return getSession().selectList("com.joham.goods.dao.GoodsMapper.queryAllGoodsToExport");
 	}
 
-	public List<Object> queryGoodsListVoListForExportByGoodsIds(
+	@Override
+    public List<Object> queryGoodsListVoListForExportByGoodsIds(
 			Map<String, Object> map) {
 		return getSession().selectList("com.joham.goods.dao.GoodsMapper.queryGoodsListVoListForExportByGoodsIds",map);
 	}

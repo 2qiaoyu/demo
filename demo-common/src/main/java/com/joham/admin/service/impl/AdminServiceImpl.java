@@ -7,10 +7,15 @@ import com.joham.util.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * 管理员服务实现
+ *
+ * @author qiaoyu
+ */
 
 @Service("AdminService")
 public class AdminServiceImpl implements AdminService {
@@ -20,19 +25,15 @@ public class AdminServiceImpl implements AdminService {
 
     /**
      * 登陆验证
-     *
-     * @param request
-     * @param username
-     * @param password
-     * @return
      */
+    @Override
     public int checkLogin(HttpServletRequest request, String username, String password) {
-        Map<String, Object> paramMap = new HashMap<String, Object>();
+        Map<String, Object> paramMap = new HashMap<>(16);
         paramMap.put("username", username);
         Admin admin = adminDao.selectAdminByUserName(paramMap);
         if (admin != null) {
             //判断密码是否正确
-            if (MD5.GetMD5Code(password).equals(admin.getPassword())) {
+            if (MD5.getMD5Code(password).equals(admin.getPassword())) {
                 request.getSession().setAttribute("admin", admin);
                 //登陆成功
                 return 1;
@@ -46,22 +47,21 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    public int addUser(Admin admin) {
-        return adminDao.save(admin);
-    }
-
-    public Admin CheckUserName(String username) {
-        Map<String, Object> map = new HashMap<String, Object>();
+    @Override
+    public Admin checkUserName(String username) {
+        Map<String, Object> map = new HashMap<>(16);
         map.put("username", username);
         return adminDao.checkUserName(map);
     }
 
+    @Override
     public Admin findUser(String userId) {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>(16);
         map.put("userId", userId);
         return adminDao.findUser(map);
     }
 
+    @Override
     public int modifyPwd(Admin admin) {
         return adminDao.update(admin);
     }

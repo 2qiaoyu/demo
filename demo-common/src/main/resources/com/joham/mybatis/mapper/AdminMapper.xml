@@ -21,14 +21,6 @@
         where admin_username=#{username} and admin_delflag='0'
     </select>
 
-    <insert id="save" parameterType="com.joham.admin.bean.Admin">
-        insert into np_user(user_id,user_name,password,delflag) values(#{userId,jdbcType=BIGINT},
-        #{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{delflag,jdbcType=CHAR})
-        <selectKey keyProperty="user_id" resultType="java.lang.Long">
-            select LAST_INSERT_ID()
-        </selectKey>
-    </insert>
-
     <select id="checkUserName" resultMap="BaseResultMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>

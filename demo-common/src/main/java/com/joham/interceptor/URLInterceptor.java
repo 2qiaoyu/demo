@@ -11,7 +11,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by joham on 2015/7/31.
+ * 请求拦截
+ *
+ * @author qiaoyu
  */
 public class URLInterceptor extends HandlerInterceptorAdapter {
     String[] nofilters = new String[]{

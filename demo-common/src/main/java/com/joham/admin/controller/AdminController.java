@@ -68,7 +68,7 @@ public class AdminController {
         PrintWriter pw = null;
         try {
             pw = response.getWriter();
-            admin = adminService.CheckUserName(username);
+            admin = adminService.checkUserName(username);
             if (admin != null) {
                 pw.print(1);
             } else {

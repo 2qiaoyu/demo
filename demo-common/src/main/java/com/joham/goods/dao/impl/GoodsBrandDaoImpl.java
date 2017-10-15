@@ -10,11 +10,13 @@ import java.util.List;
 @Repository("GoodsBrandDao")
 public class GoodsBrandDaoImpl extends BasicSqlSupport implements GoodsBrandDao{
 
-	public GoodsBrand selectByPrimaryKey(Long brandId) {
+	@Override
+    public GoodsBrand selectByPrimaryKey(Long brandId) {
 		return getSession().selectOne("com.joham.goods.dao.GoodsBrandMapper.selectByPrimaryKey", brandId);
 	}
 
-	public List<GoodsBrand> findGoodsBrandList() {
+	@Override
+    public List<GoodsBrand> findGoodsBrandList() {
 		return getSession().selectList("com.joham.goods.dao.GoodsBrandMapper.findGoodsBrandList");
 	}
 

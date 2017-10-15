@@ -6,7 +6,6 @@ import com.joham.goods.service.GoodsService;
 import com.joham.util.PageBean;
 import com.joham.util.SelectBean;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -15,17 +14,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by joham on 2015/11/28.
+ * 商品服务实现
+ *
+ * @author qiaoyu
  */
 @Service("GoodsService")
 public class GoodsServiceImpl implements GoodsService {
+
     @Resource(name = "GoodsDao")
     private GoodsDao goodsDao;
 
     @Override
     public PageBean findGoodsList(PageBean pb, SelectBean selectBean) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        List<Object> goodsList = new ArrayList<Object>();
+        Map<String, Object> map = new HashMap<>(16);
+        List<Object> goodsList = new ArrayList<>();
         try {
             map.put("startRowNum", pb.getStartRowNum());
             map.put("endRowNum", pb.getEndRowNum());
@@ -43,7 +45,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public int deleteGoodsById(Long goodsId) {
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>(16);
         map.put("goodsId", goodsId.toString());
         return this.goodsDao.deleteGoodsById(map);
     }
@@ -53,19 +55,19 @@ public class GoodsServiceImpl implements GoodsService {
         return this.goodsDao.selectById(goodsId);
     }
 
+    @Override
     public int find(SelectBean selectBean) {
         return this.goodsDao.getGoodsCount(selectBean);
     }
 
     @Override
-    @Transactional
     public int updateGoods(Goods goods) {
         return this.goodsDao.updateGoodsById(goods);
     }
 
     @Override
     public int batchDeleteGoods(Long[] goodsIds) {
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>(16);
         int count = 0;
         for (int i = 0; i < goodsIds.length; i++) {
             map.put("goodsId", goodsIds[i].toString());
@@ -86,7 +88,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Object> queryGoodsListVoListForExportByGoodsIds(Long[] goodsIds) {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>(16);
         map.put("goodsIds", goodsIds);
         List<Object> list = this.goodsDao
                 .queryGoodsListVoListForExportByGoodsIds(map);

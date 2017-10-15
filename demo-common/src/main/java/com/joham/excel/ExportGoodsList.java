@@ -58,7 +58,7 @@ public final class ExportGoodsList {
                 tempRow.createCell(2).setCellValue(
                         String.valueOf(listVo.getGoodsPrice()));
                 tempRow.createCell(3).setCellValue(
-                        listVo.getGoodsAdded().equals("1") ? "上架销售中" : "下架");
+                        "1".equals(listVo.getGoodsAdded()) ? "上架销售中" : "下架");
                 tempRow.createCell(4).setCellValue(
                         listVo.getGoodsBrand().getBrandName());
             }

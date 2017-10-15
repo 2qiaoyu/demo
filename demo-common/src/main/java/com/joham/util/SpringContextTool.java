@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContextAware;
 
 /**
  * 获取Spring上下文工具类
+ *
+ * @author qiaoyu
  */
 public class SpringContextTool implements ApplicationContextAware {
     /**
@@ -49,6 +51,7 @@ public class SpringContextTool implements ApplicationContextAware {
      *
      * @see org.springframework.context.ApplicationContextAware#setApplicationContext(org.springframework.context.ApplicationContext)
      */
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
 
     }
