@@ -23,7 +23,6 @@ public class MessageController {
     @Value("${amq.destination}")
     private String destination;
 
-    //队列消息生产者
     @Autowired
     private ProducerService producer;
 
