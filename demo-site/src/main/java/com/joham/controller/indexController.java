@@ -17,7 +17,7 @@ public class IndexController {
     /**
      * 首页
      */
-    @RequestMapping("/indexSite")
+    @RequestMapping("/")
     public String indexSite() {
         log.info("进入前台首页");
         return "index/index";
