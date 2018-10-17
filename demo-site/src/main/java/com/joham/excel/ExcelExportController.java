@@ -67,4 +67,17 @@ public class ExcelExportController {
         outputStream.flush();
         outputStream.close();
     }
+
+    @RequestMapping(value = "exportExcel1")
+    public static void exportXLS1(HttpServletResponse response) throws Exception {
+        List<Area> list = new ArrayList<>();
+        Area area1 = new Area();
+        area1.setProvince("北京");
+        area1.setCity("北京");
+        area1.setDistrict("西城区");
+        area1.setPostCode("12312312");
+        area1.setPrice(new BigDecimal("3.90"));
+        list.add(area1);
+        ExcelHelper.parseObject2Excel(list, response);
+    }
 }

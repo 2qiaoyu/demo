@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class ExcelImport {
 
-    public static void main(String[] args) {
-        System.out.println(importXLS());
+    public static void main(String[] args) throws Exception{
+        System.out.println(importXLS1());
     }
 
     private static List<Area> importXLS() {
@@ -59,8 +59,14 @@ public class ExcelImport {
         return list;
     }
 
+    private static List<AreaImport> importXLS1() throws Exception {
+        InputStream inputStream = new FileInputStream("/Users/joham/my/demo/demo-site/src/main/java/com/joham/excel/1.xls");
+        List<AreaImport> areaList = ExcelHelper.parseExcel2Object(inputStream, AreaImport.class);
+        return areaList;
+    }
+
     private static String getCellStringValue(HSSFCell cell) {
-        if(cell == null) {
+        if (cell == null) {
             return "";
         }
         String cellValue = "";

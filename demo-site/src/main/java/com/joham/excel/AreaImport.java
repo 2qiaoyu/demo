@@ -11,12 +11,12 @@ import java.math.BigDecimal;
  * @author joham
  */
 @Data
-public class Area {
+public class AreaImport {
 
     /**
      * 城市
      */
-    @Excel(column = 1, title = "城市")
+    @Excel(column = 1, required = true, title = "城市")
     private String city;
 
     /**

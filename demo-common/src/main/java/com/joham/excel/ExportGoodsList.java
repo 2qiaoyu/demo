@@ -6,6 +6,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,8 @@ import java.util.List;
 
 /**
  * 导出商品列表数据
+ *
+ * @author joham
  */
 public final class ExportGoodsList {
     /**
@@ -36,9 +39,9 @@ public final class ExportGoodsList {
         HSSFRow row1 = sheet1.createRow(0);
         sheet1.addMergedRegion(new CellRangeAddress(0, 0, 0, 4));
         HSSFCell cell1 = row1.createCell(0);
-        CellStyle cenStyle = wb.createCellStyle();
-        cenStyle.setAlignment(CellStyle.ALIGN_CENTER);
-        cell1.setCellStyle(cenStyle);
+        CellStyle cellStyle = wb.createCellStyle();
+        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+        cell1.setCellStyle(cellStyle);
         cell1.setCellValue("商品列表");
         HSSFRow row2 = sheet1.createRow(1);
         row2.createCell(0).setCellValue("商品编号");
