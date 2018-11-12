@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 /**
  * 请求拦截
  *
- * @author qiaoyu
+ * @author joham
  */
 public class URLInterceptor extends HandlerInterceptorAdapter {
     String[] nofilters = new String[]{

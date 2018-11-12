@@ -67,7 +67,7 @@
 	
 	<select id="findGoodsList" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select <include refid="Base_Column_List"/>
-		from np_goods where goods_delflag='0'
+		from goods where goods_delflag='0'
 		<!-- 为1按照商品名称查询 -->
 		<if test="condition == 1">
   			and goods_name like  CONCAT(CONCAT('%', #{searchText},'%')) 
@@ -80,7 +80,7 @@
 	</select>
 	
 	<select id="getGoodsCount" resultType="java.lang.Integer" parameterType="com.joham.util.SelectBean">
-		select count(1) from np_goods where goods_delflag='0'
+		select count(1) from goods where goods_delflag='0'
 		<!-- 为1按照商品名称查询 -->
 		<if test="condition == 1">
   			and goods_name like  CONCAT(CONCAT('%', #{searchText},'%')) 
@@ -92,11 +92,11 @@
 	</select>
 	
 	<delete id="deleteGoodsById" parameterType="java.util.Map">
-		update np_goods set goods_delflag='1',goods_del_time=NOW() where goods_id=#{goodsId,jdbcType=BIGINT}
+		update goods set goods_delflag='1',goods_del_time=NOW() where goods_id=#{goodsId,jdbcType=BIGINT}
 	</delete>
 	
 	<update id="updateGoodsById" parameterType="com.joham.goods.bean.Goods">
-		update np_goods
+		update goods
 		<set>
 			<if test="goodsName!=null">
 				goods_name=#{goodsName,jdbcType=VARCHAR},
@@ -119,11 +119,11 @@
 	
 	<select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List"/>
-		from np_goods where goods_id=#{goodsId,jdbcType=BIGINT}
+		from goods where goods_id=#{goodsId,jdbcType=BIGINT}
 	</select>
 	
 	<insert id="addGoods" parameterType="com.joham.goods.bean.Goods">
-		insert into np_goods
+		insert into goods
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 		<if test="goodsName!=null">
 			goods_name,
@@ -164,7 +164,7 @@
 	<select id="queryAllGoodsToExport" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from np_goods where goods_delflag='0'
+		from goods where goods_delflag='0'
 		order by goods_create_time desc
 	</select>
 	
@@ -172,7 +172,7 @@
 	<select id="queryGoodsListVoListForExportByGoodsIds" parameterType="java.util.Map" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from np_goods where goods_id in 
+		from goods where goods_id in
 		<foreach collection="goodsIds" item="goodsId" open="(" close=")" separator=",">
 			#{goodsId}
 		</foreach>

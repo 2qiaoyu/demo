@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * quartz定时器服务
  *
- * @author qiaoyu
+ * @author joham
  */
 
 @Service

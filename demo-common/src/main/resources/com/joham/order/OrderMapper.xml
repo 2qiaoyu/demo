@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.joham.order.OrderMapper">
+    <resultMap type="com.joham.order.Order" id="BaseResultMap">
+        <id column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <id column="order_code" property="orderCode" jdbcType="VARCHAR"/>
+        <id column="order_price" property="orderPrice" jdbcType="DECIMAL"/>
+        <id column="order_status" property="orderStatus" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id, order_code, order_price, order_status
+    </sql>
+
+    <!-- 订单查询 -->
+    <select id="getOrder" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from demo_order
+        where order_id=#{orderId}
+    </select>
+
+    <!-- 订单取消 -->
+    <update id="cancelOrder" parameterType="java.lang.Long">
+        update demo_order
+        set order_status = 2
+        where order_id = #{orderId}
+    </update>
+
+    <!-- 订单创建 -->
+    <insert id="createOrder" parameterType="com.joham.order.Order" useGeneratedKeys="true"
+            keyProperty="orderId">
+        insert into demo_order (order_code, order_price, order_status)
+        values (#{orderCode,jdbcType=VARCHAR}, #{orderPrice,jdbcType=DECIMAL}, #{orderStatus,jdbcType=INTEGER})
+    </insert>
+</mapper>

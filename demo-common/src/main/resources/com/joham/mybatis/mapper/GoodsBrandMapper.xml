@@ -28,11 +28,11 @@
   </sql>
   
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-  	select <include refid="Base_Column_List"/> from np_goods_brand where brand_id=#{brandId,jdbcType=BIGINT}
+  	select <include refid="Base_Column_List"/> from goods_brand where brand_id=#{brandId,jdbcType=BIGINT}
   </select>
   
   <select id="findGoodsBrandList" resultMap="BaseResultMap">
-  	select <include refid="Base_Column_List"/> from np_goods_brand
+  	select <include refid="Base_Column_List"/> from goods_brand
   </select>
  </mapper>
 

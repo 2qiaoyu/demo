@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 发送消息服务
  *
- * @author qiaoyu
+ * @author joham
  */
 
 @EnableJms

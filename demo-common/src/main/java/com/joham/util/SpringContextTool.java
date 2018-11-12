@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * 获取Spring上下文工具类
  *
- * @author qiaoyu
+ * @author joham
  */
 public class SpringContextTool implements ApplicationContextAware {
     /**

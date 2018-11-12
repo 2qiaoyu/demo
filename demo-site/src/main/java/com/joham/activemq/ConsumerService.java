@@ -11,7 +11,7 @@ import javax.jms.Message;
 /**
  * 消息接受服务
  *
- * @author qiaoyu
+ * @author joham
  */
 
 @Slf4j

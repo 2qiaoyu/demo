@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 消息发送控制器
  *
- * @author qiaoyu
+ * @author joham
  */
 @Controller
 @Slf4j

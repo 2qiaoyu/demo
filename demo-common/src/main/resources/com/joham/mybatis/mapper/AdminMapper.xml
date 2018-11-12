@@ -24,18 +24,18 @@
     <select id="checkUserName" resultMap="BaseResultMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>
-        from np_user
+        from user
         where user_name=#{username}
     </select>
 
     <select id="findUser" resultMap="BaseResultMap" parameterType="java.util.Map">
         select
         <include refid="Base_Column_List"/>
-        from np_user
+        from user
         where user_id=#{userId}
     </select>
 
     <select id="update" parameterType="com.joham.admin.bean.Admin">
-		update np_user set password=#{password} where user_id=#{userId}
+		update user set password=#{password} where user_id=#{userId}
 	</select>
 </mapper>

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * quartz定时器控制器
  *
- * @author qiaoyu
+ * @author joham
  */
 
 @Controller

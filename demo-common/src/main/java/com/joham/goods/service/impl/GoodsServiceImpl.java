@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 商品服务实现
  *
- * @author qiaoyu
+ * @author joham
  */
 @Service("GoodsService")
 public class GoodsServiceImpl implements GoodsService {

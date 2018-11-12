@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 管理员服务
  *
- * @author qiaoyu
+ * @author joham
  */
 
 public interface AdminService {

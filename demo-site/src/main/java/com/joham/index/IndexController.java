@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 首页控制器
  *
- * @author qiaoyu
+ * @author joham
  */
 
 @Controller
