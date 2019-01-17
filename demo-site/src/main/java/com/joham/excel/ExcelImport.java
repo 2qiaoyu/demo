@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class ExcelImport {
 
-    public static void main(String[] args) throws Exception{
-        System.out.println(importXLS1());
+    public static void main(String[] args) throws Exception {
+        System.out.println(importXLS());
     }
 
     private static List<Area> importXLS() {
@@ -26,7 +26,7 @@ public class ExcelImport {
         ArrayList<Area> list = new ArrayList<>();
         try {
             //1、获取文件输入流
-            InputStream inputStream = new FileInputStream("/Users/joham/my/demo/demo-site/src/main/java/com/joham/excel/1.xls");
+            InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("1.xls");
             //2、获取Excel工作簿对象
             HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
             //3、得到Excel工作表对象
@@ -60,7 +60,7 @@ public class ExcelImport {
     }
 
     private static List<AreaImport> importXLS1() throws Exception {
-        InputStream inputStream = new FileInputStream("/Users/joham/my/demo/demo-site/src/main/java/com/joham/excel/1.xls");
+        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("1.xls");
         List<AreaImport> areaList = ExcelHelper.parseExcel2Object(inputStream, AreaImport.class);
         return areaList;
     }
